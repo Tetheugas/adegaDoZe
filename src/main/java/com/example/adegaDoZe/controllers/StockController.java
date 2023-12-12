@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class StockController {
-    @Autowired
-    private StockRepository sr;
+    //@Autowired
+    //private StockRepository sr;
 
     @RequestMapping(value = "/registerProduct", method = RequestMethod.GET)
     public String form(){
