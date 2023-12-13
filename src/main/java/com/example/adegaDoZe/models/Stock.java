@@ -19,7 +19,7 @@ public class Stock implements Serializable {
 
     private String productName;
     private String date;
-    private String validDate;
+    private String quantity;
 
     public long getId() {
         return id;
@@ -45,11 +45,11 @@ public class Stock implements Serializable {
         this.date = date;
     }
 
-    public String getValidDate() {
-        return validDate;
+    public String getQuantity() {
+        return quantity;
     }
 
-    public void setValidDate(String validDate) {
-        this.validDate = validDate;
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 }
