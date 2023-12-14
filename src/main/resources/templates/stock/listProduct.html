@@ -67,7 +67,7 @@
         </thead>
         <tbody>
         <tr th:each="product : ${products}">
-            <td><span th:text="${product.productName}"></span></a></td>
+            <td><a th:href="${(#mvc.url('SC#updateProduct').arg(0, product.id)).build()}"><span th:text="${product.productName}"></span></a></td>
             <td><span th:text="${product.date}"></span></td>
             <td><span th:text="${product.quantity}"></span></td>
             <td><a th:href="${(#mvc.url('SC#deleteProduct').arg(0, product.id)).build()}"
