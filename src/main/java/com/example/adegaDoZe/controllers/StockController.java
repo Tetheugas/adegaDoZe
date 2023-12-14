@@ -42,15 +42,13 @@ public class StockController {
         mv.addObject("products", products);
         return mv;
     }
-//    @RequestMapping(value = "/dependentes/{id}", method = RequestMethod.GET)
-//    public ModelAndView teste(@PathVariable("id") long id) {
-//        Stock stock = sr.findById(id);
-//        ModelAndView mv = new ModelAndView("stock/listProduct");
-//        mv.addObject("teste", stock);
-//
-//        // lista de dependentes baseada no funcionario
-//        return mv;
-//    }
+    @RequestMapping(value = "/update-product/{id}", method = RequestMethod.GET)
+    public ModelAndView updateProduct(@PathVariable("id") long id) {
+        Stock stock = sr.findById(id);
+        ModelAndView mv = new ModelAndView("stock/update-product");
+        mv.addObject("stock", stock);
+        return mv;
+    }
 
     @RequestMapping("/deleteProduct")
     public String deleteProduct(long id) {
