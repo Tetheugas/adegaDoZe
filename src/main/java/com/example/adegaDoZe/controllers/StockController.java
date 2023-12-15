@@ -6,11 +6,10 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 @Controller
 public class StockController {
@@ -18,7 +17,7 @@ public class StockController {
     private StockRepository sr;
 
     @RequestMapping(value = "/registerProduct", method = RequestMethod.GET)
-    public String form(){
+    public String form() {
         return "stock/formStock";
     }
 
@@ -42,12 +41,24 @@ public class StockController {
         mv.addObject("products", products);
         return mv;
     }
+
     @RequestMapping(value = "/update-product/{id}", method = RequestMethod.GET)
-    public ModelAndView updateProduct(@PathVariable("id") long id) {
+    public ModelAndView updateProducts(@PathVariable("id") long id) {
         Stock stock = sr.findById(id);
         ModelAndView mv = new ModelAndView("stock/update-product");
         mv.addObject("stock", stock);
         return mv;
+    }
+
+    @RequestMapping(value = "/update-product/{id}", method = RequestMethod.POST)
+    public String updateProduct(@Valid Stock stock, BindingResult result, RedirectAttributes attributes) {
+
+        sr.save(stock);
+        attributes.addFlashAttribute("success", "Funcionário alterado com sucesso!");
+
+
+        return "redirect:/products";
+
     }
 
     @RequestMapping("/deleteProduct")
@@ -56,4 +67,5 @@ public class StockController {
         sr.delete(stock);
         return "redirect:/products";
     }
+
 }

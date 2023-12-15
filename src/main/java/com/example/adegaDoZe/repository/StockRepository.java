@@ -10,9 +10,9 @@ public interface StockRepository extends CrudRepository<Stock, String> {
     Stock findById(long id);
 
     //Search?
-    //Stock findByName(String name);
+    //Stock findByName(String productName);
 
     //for the search
-   // @Query(value = "select u from Stock u where u.productName like %?1%")
-    //List<Stock>findByNames(String name);
+//   @Query(value = "select u from Stock u where u.productName like %?1%")
+//    List<Stock>findByNames(String name);
 }

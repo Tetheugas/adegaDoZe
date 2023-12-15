@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>| Adega do Zé |</title>
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -67,7 +66,7 @@
         </thead>
         <tbody>
         <tr th:each="product : ${products}">
-            <td><a th:href="${(#mvc.url('SC#updateProduct').arg(0, product.id)).build()}"><span th:text="${product.productName}"></span></a></td>
+            <td><a th:href="${(#mvc.url('SC#updateProducts').arg(0, product.id)).build()}"><span th:text="${product.productName}"></span></a></td>
             <td><span th:text="${product.date}"></span></td>
             <td><span th:text="${product.quantity}"></span></td>
             <td><a th:href="${(#mvc.url('SC#deleteProduct').arg(0, product.id)).build()}"
