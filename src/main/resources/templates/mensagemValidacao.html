@@ -8,15 +8,15 @@
 
 <body>
 	<div class="alert alert-success alert-dismissible" role="alert"
-		th:if="${not #strings.isEmpty(mensagem)}">
+		th:if="${not #strings.isEmpty(message)}">
 
-		<span th:text="${mensagem}"></span>
+		<span th:text="${message}"></span>
 	</div>
 
 	<div class="alert alert-success alert-danger" role="alert"
-		th:if="${not #strings.isEmpty(mensagem_erro)}">
+		th:if="${not #strings.isEmpty(message_error)}">
 
-		<span th:text="${mensagem_erro}"></span>
+		<span th:text="${message_error}"></span>
 	</div>
 
 </body>

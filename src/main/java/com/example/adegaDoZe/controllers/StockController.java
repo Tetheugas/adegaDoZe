@@ -25,12 +25,12 @@ public class StockController {
     @RequestMapping(value = "/registerProduct", method = RequestMethod.POST)
     public String form(@Valid Stock stock, BindingResult result, RedirectAttributes attributes) {
         if (result.hasErrors()) {
-            attributes.addFlashAttribute("mensagem", "Check the fields");
+            attributes.addFlashAttribute("message", "Check the fields");
             return "redirect:/registerProduct";
         }
 
         sr.save(stock);
-        attributes.addFlashAttribute("mensagem", "Product registered successfully");
+        attributes.addFlashAttribute("message", "Product registered successfully");
         return "redirect:/registerProduct";
     }
 

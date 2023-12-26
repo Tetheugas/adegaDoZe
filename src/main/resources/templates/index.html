@@ -28,7 +28,7 @@
 
 <header>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Adega do Zé</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -70,15 +70,13 @@
     </div>
 
 
-    <!-- 	nova busca -->
+    <!-- 	new search -->
     <div class="row">
         <div class="col">
             <br> <br>
             <div class="card text-center card w-100">
                 <div class="card-header">
-                    <h3>
-                        << Pesquisar no sistema>>
-                    </h3>
+                    <h3>Search in Stock</h3>
                 </div>
 
 
@@ -91,19 +89,18 @@
                         <div class="col col-14 col-md-2">
 
                             <label for="cars" class="my-3 p-2 w-100">
-                                <h5>Tipo
-                                    de busca:</h5>
+                                <h5>Type
+                                    of search:</h5>
                             </label>
                         </div>
 
                         <div class="col col-14 col-md-2">
 
 
-                            <select name="nome" id="nome" class="custom-select my-3 p-2 w-100" required>
-                                <option value="">Escolher...</option>
-                                <option value="todos">Todos</option>
+                            <select name="name" id="name" class="custom-select my-3 p-2 w-100" required>
+                                <option value="">Choose...</option>
                                 <option value="productName">Product</option>
-                                <option value="validDate">validDate</option>
+
 
                             </select>
 
@@ -113,14 +110,14 @@
                         <div class="col col-14 col-md-4">
 
                             <input class="form-control form-control-lg my-3 p-2 w-100" type="search"
-                                   placeholder="Insira sua pesquisa..." aria-label="Pesquisar" name="buscar"
-                                   id="buscar" required>
+                                   placeholder="Insert your search..." aria-label="Search" name="search"
+                                   id="search" required>
 
                         </div>
 
                         <div class="col col-14 col-md-2">
 
-                            <button class="btn btn-primary my-3 p-2 w-100" type="submit">Pesquisar</button>
+                            <button class="btn btn-primary my-3 p-2 w-100" type="submit">Search</button>
 
                         </div>
                     </div>
@@ -128,32 +125,20 @@
                 </form>
 
                 <div class="row form-group justify-content-center w-100 p-2">
-                    <h4><i><span th:text="${mensagem}"></span></i></h4>
+                    <h4><i><span th:text="${message}"></span></i></h4>
                 </div>
 
                 <div class="row form-group justify-content-center w-100 p-2">
                     <table class="table table-hover table-responsive w-auto table-striped">
 
                         <tbody>
-                        <tr th:each="stock : ${stocks}">
-                            <td><a th:href="${(#mvc.url('SC#products').arg(0, stock.id)).build()}"><span
-                                    th:text="${stock.productName}"></span></a> - em <i>Products.</i></td>
+                        <tr th:each="product : ${products}">
+                            <td><a th:href="${(#mvc.url('SC#updateProducts').arg(0, product.id)).build()}"><span
+                                    th:text="${product.productName}"></span></a> - in <i>Products.</i></td>
 
-
-                        </tr>
-                        <tr th:each="vaga : ${vagas}">
-                            <td><a th:href="${(#mvc.url('VC#detalhesVaga').arg(0, vaga.codigo)).build()}"><span
-                                    th:text="${vaga.nome}"></span></a> - em <i>vagas.</i></td>
                         </tr>
 
 
-                        <tr th:each="dependente : ${dependentes}">
-                            <td><span th:text="${dependente.nome}"></span> - <i>em dependentes.</i></td>
-                        </tr>
-
-                        <tr th:each="candidato : ${candidatos}">
-                            <td><span th:text="${candidato.nomeCandidato}"></span> - <i>em candidatos.</i></td>
-                        </tr>
 
                         </tbody>
                     </table>
@@ -171,7 +156,7 @@
 <div style="height: 100px;"></div>
 
 
-<div class="footer-copyright fixed-bottom bg-dark text-center py-3">
+<div class="footer-copyright fixed-bottom bg-primary text-center py-3">
 		<span class="text-light align-middle">| Adega do Zé | - ©
 				2023 Copyright: @tetheugas</span>
 </div>
